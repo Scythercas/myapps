@@ -1,13 +1,37 @@
 <!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Omestact</title>
-    <link rel="stylesheet" href="./style.css" />
-    <script src="./main.js"></script>
-  </head>
-  <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
     <h1>welcome to my home</h1>
-  </body>
+    <div></div>
+    <script>
+      const path = require("path");
+const fs = require("fs");
+
+const currentDir = process.cwd();
+console.log(currentDir);
+const publicPath = `${currentDir}/public`;
+
+//ファイルとディレクトリのリストが格納される(配列)
+const files = fs.readdirSync(publicPath);
+//ディレクトリのリストに絞る
+const dirList = files.filter((file) => {
+  return fs.statSync(path.join(publicPath, file)).isDirectory();
+});
+const div = document.querySelector("div");
+dirList.forEach((element) => {
+  const a = document.createElement("a");
+  console.log(`console ../public/${element}`);
+  a.href = `../public/${element}`;
+  a.innerText = `${element}`;
+  div.appendChild(a);
+});
+
+    </script>
+</body>
 </html>

@@ -14,14 +14,27 @@
       "command": "yarn run start",
       "runAtStart": false
     },
+    "start": {
+      "name": "start",
+      "command": "yarn start",
+      "runAtStart": false
+    },
     "dev": {
       "name": "dev",
       "command": "yarn dev",
       "runAtStart": true
     },
-    "npm run start": {
-      "name": "npm run start",
-      "command": "npm run start"
+    "kill 13560": {
+      "name": "kill 13560",
+      "command": "kill 13560"
+    },
+    "kill 1284": {
+      "name": "kill 1284",
+      "command": "kill 1284"
+    },
+    "kill 12844": {
+      "name": "kill 12844",
+      "command": "kill 12844"
     }
   }
 }
