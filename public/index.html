@@ -13,9 +13,7 @@
       const path = require("path");
 const fs = require("fs");
 
-const currentDir = process.cwd();
-console.log(currentDir);
-const publicPath = `${currentDir}/public`;
+const publicPath = process.cwd();
 
 //ファイルとディレクトリのリストが格納される(配列)
 const files = fs.readdirSync(publicPath);
