@@ -1,2 +1,2 @@
-# ① publicにフォルダを追加
-# ② index.htmlにaタグ追加
+① publicにフォルダを追加
+② index.htmlにaタグ追加
