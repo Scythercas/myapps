@@ -8,13 +8,14 @@ const PORT = 3000;
 
 ///////////
 const currentDir = process.cwd();
+console.log(currentDir);
 const publicPath = `${currentDir}/public`;
 
 //ファイルとディレクトリのリストが格納される(配列)
 const files = fs.readdirSync(publicPath);
 //ディレクトリのリストに絞る
 const dirList = files.filter((file) => {
-  return fs.statSync(path.join(currentDir, file)).isDirectory();
+  return fs.statSync(path.join(publicPath, file)).isDirectory();
 });
 ///////////
 
