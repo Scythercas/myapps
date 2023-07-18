@@ -9,29 +9,28 @@
 <body>
     <h1>welcome to my home</h1>
     <div></div>
-    <script>
+    <script type="module">
         import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-      const path = require("path");
-const fs = require("fs");
-
-const publicPath = process.cwd();
-
-//ファイルとディレクトリのリストが格納される(配列)
-const files = fs.readdirSync(publicPath);
-//ディレクトリのリストに絞る
-const dirList = files.filter((file) => {
-  return fs.statSync(path.join(publicPath, file)).isDirectory();
-});
-const div = document.querySelector("div");
-dirList.forEach((element) => {
-  const a = document.createElement("a");
-  console.log(`console ../public/${element}`);
-  a.href = `../public/${element}`;
-  a.innerText = `${element}`;
-  div.appendChild(a);
-});
-
+        const require = createRequire(import.meta.url);
+        const path = require("path");
+        const fs = require("fs");
+        
+        const publicPath = process.cwd();
+        
+        //ファイルとディレクトリのリストが格納される(配列)
+        const files = fs.readdirSync(publicPath);
+        //ディレクトリのリストに絞る
+        const dirList = files.filter((file) => {
+          return fs.statSync(path.join(publicPath, file)).isDirectory();
+        });
+        const div = document.querySelector("div");
+        dirList.forEach((element) => {
+          const a = document.createElement("a");
+          console.log(`console ../public/${element}`);
+          a.href = `../public/${element}`;
+          a.innerText = `${element}`;
+          div.appendChild(a);
+        });
     </script>
 </body>
 </html>
