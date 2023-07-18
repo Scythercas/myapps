@@ -8,7 +8,6 @@ const PORT = 3000;
 
 ///////////
 const currentDir = process.cwd();
-console.log(currentDir);
 const publicPath = `${currentDir}/public`;
 
 //ファイルとディレクトリのリストが格納される(配列)
@@ -21,7 +20,8 @@ const dirList = files.filter((file) => {
 
 // ルーティングの設定
 app.get("/", (req, res) => {
-  res.sendFile("index.html");
+  res.sendFile(path.join(__dirname, "index.html"));
+  
   console.log("/ へアクセスがありました");
 });
 
