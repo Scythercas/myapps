@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Easy Yathzee</title>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <table id="diceTable">
+      <tr>
+        <td id="dice1" class="touchable"></td>
+        <td id="dice2" class="touchable"></td>
+        <td id="dice3" class="touchable"></td>
+      </tr>
+    </table>
+    <button id="decide">変更しない</button>
+    <table id="scoreTable">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Player 1</th>
+          <th>Player 2</th>
+        </tr>
+      </thead>
+      <tr>
+        <th>１回目</th>
+        <td class="scoreTd" class="myScore"></td>
+        <td class="scoreTd" class="cpuScore"></td>
+      </tr>
+      <tr>
+        <th>２回目</th>
+        <td class="scoreTd" class="myScore"></td>
+        <td class="scoreTd" class="cpuScore"></td>
+      </tr>
+      <tr>
+        <th>３回目</th>
+        <td class="scoreTd" class="myScore"></td>
+        <td class="scoreTd" class="cpuScore"></td>
+      </tr>
+      <tr id="resultRow">
+        <th>結果</th>
+        <td id="playersScore"></td>
+        <td id="CPUsScore"></td>
+      </tr>
+    </table>
+  </body>
+</html>

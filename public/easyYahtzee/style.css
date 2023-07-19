@@ -1,0 +1,49 @@
+body {
+  padding-top: 10px;
+}
+#diceTable {
+  display: inline;
+  border-spacing: 30px 0px;
+}
+#diceTable td {
+  border: 2px solid black;
+  margin-right: 50px;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  font-size: 300%;
+  border-radius: 50px;
+}
+button {
+  background-color: honeydew;
+  border-radius: 5px;
+}
+button:hover {
+  background-color: rgb(220, 255, 220);
+}
+#scoreTable {
+  border: 2px solid black;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+#resultRow {
+  background-color: rgb(255, 224, 85);
+}
+
+#scoreTable td,
+th {
+  border: 1px solid black;
+  width: 120px;
+  height: 60px;
+  font-size: 150%;
+  text-align: center;
+}
+.touchable {
+  background-color: rgb(206, 255, 132);
+}
+.touchable:hover {
+  background-color: rgb(190, 255, 93);
+}
+.scoreTd {
+  background-color: rgb(214, 214, 214);
+}
