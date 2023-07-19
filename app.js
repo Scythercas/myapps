@@ -6,30 +6,25 @@ const app = express();
 app.use(express.static("./public"));
 const PORT = 3000;
 
-///////////
 const currentDir = process.cwd();
 const publicPath = `${currentDir}/public`;
 
-//ファイルとディレクトリのリストが格納される(配列)
+//ファイル名とディレクトリ名のリスト
 const files = fs.readdirSync(publicPath);
-//ディレクトリのリストに絞る
+//ディレクトリに絞る
 const dirList = files.filter((file) => {
   return fs.statSync(path.join(publicPath, file)).isDirectory();
 });
-///////////
 
 // ルーティングの設定
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
-  
-  console.log("/ へアクセスがありました");
 });
 
 // ディレクトリごとにルーティング
 dirList.forEach((element) => {
   app.get(`/${element}`, (req, res) => {
     res.sendFile(`${element}/index.html`);
-    console.log("/ へアクセスがありました");
   });
 });
 
