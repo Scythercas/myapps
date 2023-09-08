@@ -1,0 +1,27 @@
+table tr td {
+  border: 3px solid black;
+}
+table {
+  border-collapse: collapse;
+}
+td {
+  width: 30px;
+  height: 30px;
+  background-color: gray;
+  text-align: center;
+  line-height: 50%;
+}
+td.unopened {
+  font-size: 0;
+}
+td.opened {
+  font-size: 1em;
+  background-color: white;
+}
+td.flag {
+  background-color: yellow;
+}
+td.opened.haveBomb {
+  font-size: 1.5em;
+  background-color: red;
+}
