@@ -145,7 +145,6 @@ const tdDoubleClick = (e) => {
   }
   const writtenNumber = +target.innerText;
   const bombCount = countSurroundingflags(cellX, cellY);
-  console.log(writtenNumber, bombCount);
   if (writtenNumber === bombCount) {
     openCellWithYourClass(cellX - 1, cellY, "flag");
     openCellWithYourClass(cellX + 1, cellY, "flag");
@@ -340,7 +339,6 @@ const init = () => {
       }
     }
   }
-  console.log(fieldArr);
 
   const log = document.createElement("div");
   log.id = "log";
