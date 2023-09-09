@@ -26,6 +26,11 @@ const updateLog = () => {
 // Clear処理
 const gameClear = () => {
   log.innerText = "Clear";
+  const table = document.querySelector("table");
+  table.style.transform = `rotate(1800deg)`;
+  table.style.transition = "6s";
+  log.style.transition = "6s";
+  log.style.fontSize = "100px";
 };
 // GameOver処理
 const gameOver = () => {
@@ -118,6 +123,7 @@ const tdOnClick = (e) => {
 // 右クリック
 const tdRightClick = (e) => {
   e.preventDefault();
+  gameClear();
   currentStatus =
     currentStatus == GAME_STATUS.BEFORE_START
       ? GAME_STATUS.PLAYING
