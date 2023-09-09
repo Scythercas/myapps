@@ -170,7 +170,7 @@ const openCellWithYourClass = (cellX, cellY, nameOfClass) => {
     document.querySelector(`#cell${cellY}${cellX}`).click();
   }
 };
-// 周囲8マスの旗の数を数える
+// 周囲8マスの旗の数を数える (x座標, y座標)
 const countSurroundingflags = (cellX, cellY) => {
   let count = 0;
   if (cellX > 0) {
