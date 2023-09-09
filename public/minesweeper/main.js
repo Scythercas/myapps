@@ -123,7 +123,6 @@ const tdOnClick = (e) => {
 // 右クリック
 const tdRightClick = (e) => {
   e.preventDefault();
-  gameClear();
   currentStatus =
     currentStatus == GAME_STATUS.BEFORE_START
       ? GAME_STATUS.PLAYING
