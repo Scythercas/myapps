@@ -1,6 +1,6 @@
 //* 定数
 const TABLE_WIDTH = 10;
-const TABLE_HEIGHT = 10;
+const TABLE_HEIGHT = 10; 
 const NUMBER_OF_BOMBS = 20;
 const GAME_STATUS = {
   BEFORE_INIT: 0,
@@ -46,15 +46,11 @@ const gameOver = () => {
   }
 };
 // 再帰関数
-const openBlankCells = (cell) => {
-  if (!cell.classList.contains("blank")) {
-    return;
-  }
+const openCells = (cell) => {
   if (cell.classList.contains("opened")) {
     return;
   }
   if (
-    //FIXME: if文引っかからない
     cell.classList.contains("haveNum") &&
     cell.classList.contains("unopened")
   ) {
@@ -71,21 +67,42 @@ const openBlankCells = (cell) => {
   let flg = 0;
   if (clickedX > 0 && flg == 0) {
     flg++;
-    openBlankCells(document.querySelector(`#cell${clickedY}${clickedX - 1}`));
+    openCells(document.querySelector(`#cell${clickedY}${clickedX - 1}`));
   }
   if (clickedY > 0 && flg <= 1) {
     flg++;
-    openBlankCells(document.querySelector(`#cell${clickedY - 1}${clickedX}`));
+    openCells(document.querySelector(`#cell${clickedY - 1}${clickedX}`));
   }
   if (clickedX < TABLE_WIDTH - 1 && flg <= 2) {
     flg++;
-    openBlankCells(document.querySelector(`#cell${clickedY}${clickedX + 1}`));
+    openCells(document.querySelector(`#cell${clickedY}${clickedX + 1}`));
   }
   if (clickedY < TABLE_HEIGHT - 1 && flg <= 3) {
     flg++;
-    openBlankCells(document.querySelector(`#cell${clickedY + 1}${clickedX}`));
+    openCells(document.querySelector(`#cell${clickedY + 1}${clickedX}`));
+  }
+  if (clickedX > 0 && clickedY > 0 && flg <= 4) {
+    flg++;
+    openCells(document.querySelector(`#cell${clickedY - 1}${clickedX - 1}`));
+  }
+  if (clickedX > 0 && clickedY < TABLE_HEIGHT - 1 && flg <= 5) {
+    flg++;
+    openCells(document.querySelector(`#cell${clickedY + 1}${clickedX - 1}`));
+  }
+  if (clickedX < TABLE_WIDTH - 1 && clickedY > 0 && flg <= 6) {
+    flg++;
+    openCells(document.querySelector(`#cell${clickedY - 1}${clickedX + 1}`));
+  }
+  if (clickedX < TABLE_WIDTH - 1 && clickedY < TABLE_HEIGHT - 1 && flg <= 7) {
+    flg++;
+    openCells(document.querySelector(`#cell${clickedY + 1}${clickedX + 1}`));
   }
 };
+const openNumCell = (cell) => {
+  numberOfOpenedCells++;
+  updateLog();
+  cell.classList.replace("unopened", "opened");
+}
 // ひだりクリック
 const tdOnClick = (e) => {
   currentStatus =
@@ -108,7 +125,9 @@ const tdOnClick = (e) => {
       target.classList.remove("flag");
     }
     if (target.classList.contains("blank")) {
-      openBlankCells(target);
+      openCells(target);
+    } else if (target.classList.contains("haveNum")) {
+      openNumCell(target);
     } else {
       target.classList.replace("unopened", "opened");
       numberOfOpenedCells++;
